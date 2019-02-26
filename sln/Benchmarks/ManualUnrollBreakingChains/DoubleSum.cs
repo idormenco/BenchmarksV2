@@ -62,7 +62,7 @@
 				s6 += array[i + 6];
 				s7 += array[i + 7];
 			}
-			return ((s0 + 11) + (s2 + s3)) + ((s4 + s5) + (s6 + s7));
+			return ((s0 + s1) + (s2 + s3)) + ((s4 + s5) + (s6 + s7));
 		}
 	}
 }

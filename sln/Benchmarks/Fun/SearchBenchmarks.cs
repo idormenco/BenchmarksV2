@@ -17,24 +17,13 @@ namespace Benchmarks.Fun
 		[Benchmark]
 		public bool IonsSearch()
 		{
-			var ionsAlgorithm = IonsAlgorithm(MyArray, SearchedElement);
-			if (ionsAlgorithm == false)
-			{
-				throw new Exception("ops");
-			}
-			return ionsAlgorithm;
+			return IonsAlgorithm(MyArray, SearchedElement);
 		}
 
 		[Benchmark]
 		public bool BinarySearch()
 		{
-			var result = BinarySearchAlgorithm(MyArray, SearchedElement);
-			if (result == false)
-			{
-				throw new Exception("ops");
-			}
-
-			return result;
+			return BinarySearchAlgorithm(MyArray, SearchedElement);
 		}
 
 		private bool BinarySearchAlgorithm(int[] array, int searchedElement)
