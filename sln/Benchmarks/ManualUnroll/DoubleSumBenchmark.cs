@@ -17,13 +17,13 @@ namespace Benchmarks.ManualUnroll
 			data = Utils.NewRandomDoubleArray(Size);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public double RegularSum()
 		{
 			return doubleSum.Sum(data);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public double SumManualUnroll()
 		{
 			return doubleSum.SumManualUnroll(data);

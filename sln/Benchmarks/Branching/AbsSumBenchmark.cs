@@ -27,37 +27,37 @@ namespace Benchmarks.Branching
 			shuffledData = Utils.ShuffledCopyOf(regularData);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public int BranchRegular()
 		{
 			return absSum.AbsSumBranch(regularData);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public int BranchSorted()
 		{
 			return absSum.AbsSumBranch(sortedData);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public int BranchShuffled()
 		{
 			return absSum.AbsSumBranch(shuffledData);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public int BranchlessRegular()
 		{
 			return absSum.AbsSumBranchless(regularData);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public int BranchlessSorted()
 		{
 			return absSum.AbsSumBranchless(sortedData);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public int BranchlessShuffled()
 		{
 			var absSumBranchless = absSum.AbsSumBranchless(shuffledData);

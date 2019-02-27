@@ -11,15 +11,14 @@ namespace Benchmarks.Fun
 		[Params(new[] { 'a', 'b', 'b', 'c', 'c', 'D', 'D', 'I', 'o', 'n' }, new[] { 'A', 'b', 'b', 'c', 'c', 'D', 'D', 'I', 'o', 'm' })]
 		public char[] EnteredPassword;
 
-		private const int Size = 10;
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public bool IsEqual()
 		{
 			return IsEqual(SecretPassword, EnteredPassword);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public bool Safe()
 		{
 			return SafeCompare(SecretPassword, EnteredPassword);

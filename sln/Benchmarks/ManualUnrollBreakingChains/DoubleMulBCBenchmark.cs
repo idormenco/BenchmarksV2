@@ -16,31 +16,31 @@ namespace Benchmarks.ManualUnrollBreakingChains
 			data = Utils.NewRandomDoubleArray(Size);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public double RegularMul()
 		{
 			return doubleMul.Mul(data);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public double Mul2Accumulators()
 		{
 			return doubleMul.Mul2Accumulators(data);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public double Mul4Accumulators()
 		{
 			return doubleMul.Mul4Accumulators(data);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public double Mul8Accumulators()
 		{
 			return doubleMul.Mul8Accumulators(data);
 		}
 
-		[Benchmark(OperationsPerInvoke = Size)]
+		[Benchmark]
 		public double Mul16Accumulators()
 		{
 			return doubleMul.Mul16Accumulators(data);
