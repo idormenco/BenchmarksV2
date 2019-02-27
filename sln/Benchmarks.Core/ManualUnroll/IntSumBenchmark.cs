@@ -8,7 +8,7 @@ namespace Benchmarks.Core.ManualUnroll
 
 		private IntSum intSum = new IntSum();
 
-		public int Size = 2048;
+		private const int Size = 2048;
 
 		[GlobalSetup]
 		public void GlobalSetup()
@@ -16,13 +16,13 @@ namespace Benchmarks.Core.ManualUnroll
 			data = Utils.NewRandomIntArray(Size);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double RegularSum()
 		{
 			return intSum.Sum(data);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double SumManualUnroll()
 		{
 			return intSum.SumManualUnroll(data);

@@ -11,7 +11,7 @@ namespace Benchmarks.Core.Branching
 		private bool[] sortedFlags1;
 
 
-		public static int Size = 4 * 1024;
+		private const int Size = 4 * 1024;
 		private CountFlags countFlags = new CountFlags(Size);
 
 
@@ -31,25 +31,25 @@ namespace Benchmarks.Core.Branching
 			shuffledFlags1 = Utils.ShuffledCopyOf(sortedFlags1);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int CountConditionalShuffled()
 		{
 			return countFlags.CountConditional(shuffledFlags0, shuffledFlags1);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int CountConditionalSorted()
 		{
 			return countFlags.CountConditional(sortedFlags0, sortedFlags1);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int CountLogicalShuffled()
 		{
 			return countFlags.CountLogical(shuffledFlags0, shuffledFlags1);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int CountLogicalSorted()
 		{
 			return countFlags.CountLogical(sortedFlags0, sortedFlags1);

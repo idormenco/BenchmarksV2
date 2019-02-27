@@ -9,7 +9,7 @@ namespace Benchmarks.Core.ManualUnroll
 
 		private DoubleSum doubleSum = new DoubleSum();
 
-		public int Size = 2048;
+		private const int Size = 2048;
 
 		[GlobalSetup]
 		public void GlobalSetup()
@@ -17,13 +17,13 @@ namespace Benchmarks.Core.ManualUnroll
 			data = Utils.NewRandomDoubleArray(Size);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double RegularSum()
 		{
 			return doubleSum.Sum(data);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double SumManualUnroll()
 		{
 			return doubleSum.SumManualUnroll(data);

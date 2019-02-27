@@ -18,8 +18,8 @@ namespace Benchmarks
 
 
 			BenchmarkRunner.Run<AllBreakingChainsBenchmark>();
-			
-			
+
+
 			BenchmarkRunner.Run<SearchBenchmarks>();
 			BenchmarkRunner.Run<KeyCompareBenchmarks>();
 		}

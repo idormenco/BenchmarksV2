@@ -8,18 +8,19 @@ namespace Benchmarks.Core.Fun
 	{
 		public int[] MyArray = new[] { 1, 2, 4, 7, 11, 15, 19, 22, 44, 99, 100, 134, 150, 666 };
 
+		private const int Size = 14; 
 
 		[Params(1, 150)]
 		public int SearchedElement;
 
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public bool IonsSearch()
 		{
 			return IonsAlgorithm(MyArray, SearchedElement);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public bool BinarySearch()
 		{
 			return BinarySearchAlgorithm(MyArray, SearchedElement);
@@ -64,13 +65,13 @@ namespace Benchmarks.Core.Fun
 		}
 
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public bool LinqSearch()
 		{
 			return MyArray.Contains(SearchedElement);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public bool ArrayBinarySearch()
 		{
 			return Array.BinarySearch(MyArray,SearchedElement)>0;

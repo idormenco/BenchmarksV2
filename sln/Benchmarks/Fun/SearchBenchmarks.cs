@@ -4,23 +4,21 @@ using BenchmarkDotNet.Attributes;
 
 namespace Benchmarks.Fun
 {
-	[InProcess()]
 	public class SearchBenchmarks
 	{
-		public int[] MyArray = new[] { 1, 2, 4, 7, 11, 15, 19, 22, 44, 99, 100, 134, 150, 666 };
+		public int[] MyArray = Enumerable.Range(1, Size).ToArray();
 
-
-		[Params(1, 150)]
+		[Params( 99999)]
 		public int SearchedElement;
 
-
-		[Benchmark]
+		private const int Size = 100000;
+		[Benchmark(OperationsPerInvoke = Size)]
 		public bool IonsSearch()
 		{
-			return IonsAlgorithm(MyArray, SearchedElement);
+			return NaiveSearchAlgorithm(MyArray, SearchedElement);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public bool BinarySearch()
 		{
 			return BinarySearchAlgorithm(MyArray, SearchedElement);
@@ -51,7 +49,7 @@ namespace Benchmarks.Fun
 		}
 
 
-		private bool IonsAlgorithm(int[] array, int searchedElement)
+		private bool NaiveSearchAlgorithm(int[] array, int searchedElement)
 		{
 			for (int i = 0; i < array.Length; i++)
 			{
@@ -64,17 +62,34 @@ namespace Benchmarks.Fun
 			return false;
 		}
 
+		[Benchmark(OperationsPerInvoke = Size)]
+		public bool ArrayBinarySearch()
+		{
+			return Array.BinarySearch(MyArray, SearchedElement) > 0;
+		}
 
-		[Benchmark]
-		public bool LinqSearch()
+		[Benchmark(OperationsPerInvoke = Size)]
+		public bool ArrayExists()
+		{
+			return Array.Exists(MyArray, x => x == SearchedElement);
+		}
+
+		[Benchmark(OperationsPerInvoke = Size)]
+		public bool LinqContains()
 		{
 			return MyArray.Contains(SearchedElement);
 		}
 
-		[Benchmark]
-		public bool ArrayBinarySearch()
+		[Benchmark(OperationsPerInvoke = Size)]
+		public bool LinqAny()
 		{
-			return Array.BinarySearch(MyArray,SearchedElement)>0;
+			return MyArray.Any(x => x == SearchedElement);
+		}
+
+		[Benchmark(OperationsPerInvoke = Size)]
+		public bool LinqFirstOrDefault()
+		{
+			return MyArray.FirstOrDefault(x => x == SearchedElement) == SearchedElement;
 		}
 	}
 }

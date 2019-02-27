@@ -8,7 +8,7 @@ namespace Benchmarks.ManualUnrollBreakingChains
 
 		private DoubleMul doubleMul = new DoubleMul();
 
-		public int Size = 2048;
+		private const int Size = 2048;
 
 		[GlobalSetup]
 		public void GlobalSetup()
@@ -16,28 +16,34 @@ namespace Benchmarks.ManualUnrollBreakingChains
 			data = Utils.NewRandomDoubleArray(Size);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double RegularMul()
 		{
 			return doubleMul.Mul(data);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double Mul2Accumulators()
 		{
 			return doubleMul.Mul2Accumulators(data);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double Mul4Accumulators()
 		{
 			return doubleMul.Mul4Accumulators(data);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double Mul8Accumulators()
 		{
 			return doubleMul.Mul8Accumulators(data);
+		}
+
+		[Benchmark(OperationsPerInvoke = Size)]
+		public double Mul16Accumulators()
+		{
+			return doubleMul.Mul16Accumulators(data);
 		}
 	}
 }

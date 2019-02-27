@@ -13,7 +13,7 @@ namespace Benchmarks.Branching
 
 		private AbsSum absSum;
 
-		public int Size = 4 * 1024;
+		private const int Size = 4 * 1024;
 
 		[Params("10", "1101001001")]
 		public string Pattern;
@@ -27,37 +27,37 @@ namespace Benchmarks.Branching
 			shuffledData = Utils.ShuffledCopyOf(regularData);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int BranchRegular()
 		{
 			return absSum.AbsSumBranch(regularData);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int BranchSorted()
 		{
 			return absSum.AbsSumBranch(sortedData);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int BranchShuffled()
 		{
 			return absSum.AbsSumBranch(shuffledData);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int BranchlessRegular()
 		{
 			return absSum.AbsSumBranchless(regularData);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int BranchlessSorted()
 		{
 			return absSum.AbsSumBranchless(sortedData);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public int BranchlessShuffled()
 		{
 			var absSumBranchless = absSum.AbsSumBranchless(shuffledData);

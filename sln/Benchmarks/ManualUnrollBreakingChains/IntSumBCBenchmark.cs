@@ -8,7 +8,7 @@ namespace Benchmarks.ManualUnrollBreakingChains
 
 		private IntSum intSum = new IntSum();
 
-		public int Size = 2048;
+		private const int Size = 2048;
 
 		[GlobalSetup]
 		public void GlobalSetup()
@@ -16,28 +16,34 @@ namespace Benchmarks.ManualUnrollBreakingChains
 			data = Utils.NewRandomIntArray(Size);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double RegularSum()
 		{
 			return intSum.Sum(data);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double Sum2Accumulators()
 		{
 			return intSum.Sum2Accumulators(data);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double Sum4Accumulators()
 		{
 			return intSum.Sum4Accumulators(data);
 		}
 
-		[Benchmark]
+		[Benchmark(OperationsPerInvoke = Size)]
 		public double Sum8Accumulators()
 		{
 			return intSum.Sum8Accumulators(data);
+		}
+
+		[Benchmark(OperationsPerInvoke = Size)]
+		public double Sum16Accumulators()
+		{
+			return intSum.Sum16Accumulators(data);
 		}
 	}
 }
