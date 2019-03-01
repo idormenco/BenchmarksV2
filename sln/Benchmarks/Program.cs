@@ -10,18 +10,16 @@ namespace Benchmarks
 	{
 		static void Main()
 		{
-			//BenchmarkRunner.Run<AbsSumBenchmark>();
-			//BenchmarkRunner.Run<CountFlagsBenchmark>();
+			BenchmarkRunner.Run<AbsSumBenchmark>();
+			BenchmarkRunner.Run<CountFlagsBenchmark>();
 
-			//BenchmarkRunner.Run<DoubleSumBenchmark>();
-			//BenchmarkRunner.Run<IntSumBenchmark>();
-
-
+			BenchmarkRunner.Run<DoubleSumBenchmark>();
+			BenchmarkRunner.Run<IntSumBenchmark>();
 			BenchmarkRunner.Run<AllBreakingChainsBenchmark>();
 
 
-			//BenchmarkRunner.Run<SearchBenchmarks>();
-			//BenchmarkRunner.Run<KeyCompareBenchmarks>();
+			BenchmarkRunner.Run<SearchBenchmarks>();
+			BenchmarkRunner.Run<KeyCompareBenchmarks>();
 		}
 	}
 }
