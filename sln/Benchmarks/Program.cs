@@ -17,10 +17,10 @@ namespace Benchmarks
 			//BenchmarkRunner.Run<IntSumBenchmark>();
 
 
-			//BenchmarkRunner.Run<AllBreakingChainsBenchmark>();
+			BenchmarkRunner.Run<AllBreakingChainsBenchmark>();
 
 
-			BenchmarkRunner.Run<SearchBenchmarks>();
+			//BenchmarkRunner.Run<SearchBenchmarks>();
 			//BenchmarkRunner.Run<KeyCompareBenchmarks>();
 		}
 	}

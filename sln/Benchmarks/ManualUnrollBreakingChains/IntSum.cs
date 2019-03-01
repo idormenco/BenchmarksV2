@@ -84,7 +84,7 @@
 			int s14 = 0;
 			int s15 = 0;
 
-			for (int i = 0; i < array.Length; i += 8)
+			for (int i = 0; i < array.Length; i += 16)
 			{
 				s0 += array[i];
 				s1 += array[i + 1];

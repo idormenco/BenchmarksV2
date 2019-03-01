@@ -48,6 +48,12 @@ namespace Benchmarks.ManualUnrollBreakingChains
 		}
 
 		[Benchmark]
+		public double DoubleMul16Accumulators()
+		{
+			return doubleMul.Mul16Accumulators(data);
+		}
+
+		[Benchmark]
 		public double DoubleRegularSum()
 		{
 			return doubleSum.Sum(data);
@@ -70,6 +76,13 @@ namespace Benchmarks.ManualUnrollBreakingChains
 		{
 			return doubleSum.Sum8Accumulators(data);
 		}
+
+		[Benchmark]
+		public double DoubleSum16Accumulators()
+		{
+			return doubleSum.Sum16Accumulators(data);
+		}
+
 		[Benchmark]
 		public double IntRegularMul()
 		{
@@ -101,31 +114,31 @@ namespace Benchmarks.ManualUnrollBreakingChains
 		}
 
 		[Benchmark]
-		public double RegularSum()
+		public double IntRegularSum()
 		{
 			return intSum.Sum(intData);
 		}
 
 		[Benchmark]
-		public double Sum2Accumulators()
+		public double IntSum2Accumulators()
 		{
 			return intSum.Sum2Accumulators(intData);
 		}
 
 		[Benchmark]
-		public double Sum4Accumulators()
+		public double IntSum4Accumulators()
 		{
 			return intSum.Sum4Accumulators(intData);
 		}
 
 		[Benchmark]
-		public double Sum8Accumulators()
+		public double IntSum8Accumulators()
 		{
 			return intSum.Sum8Accumulators(intData);
 		}
 
 		[Benchmark]
-		public double Sum16Accumulators()
+		public double IntSum16Accumulators()
 		{
 			return intSum.Sum16Accumulators(intData);
 		}
